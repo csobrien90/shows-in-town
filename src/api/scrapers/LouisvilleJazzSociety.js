@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-export async function scrape() {
+export async function scrapeLouisvilleJazzSociety() {
 	// Start and configure puppeteer
 	const browser = await puppeteer.launch({})
 	const page = await browser.newPage()
@@ -48,9 +48,9 @@ export async function scrape() {
 		let day = dateArr[1];
  
 		let startTime = dateArr[dateArr.indexOf('–') - 2];
-		let isAM = dateArr[dateArr.indexOf('–') - 1];
+		let isAM = dateArr[dateArr.indexOf('–') - 1] === 'am';
 		let timeArr = startTime.split(':');
-		let hour = isAM ? timeArr[0] : timeArr[0] + 12; 
+		let hour = isAM ? timeArr[0] : +timeArr[0] + 12; 
 		let formattedHour = ('0' + hour).slice(-2);
 
 		let parsableDate = `${year}-${month}-${day}T${formattedHour}:${timeArr[1]}:00`;
@@ -75,4 +75,4 @@ export async function scrape() {
 
 }
 
-console.log(await scrape())
+console.log(await scrapeLouisvilleJazzSociety())
