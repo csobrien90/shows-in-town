@@ -25,7 +25,7 @@ export async function scrapeLouisvilleJazzSociety() {
 		desc = desc ? await e.$eval('.tribe-events-calendar-list__event-description p', el => el.innerText) : '';
 
 		// Generate epoch
-		let dateArr = time.split(' ');
+		let dateArr = time.trim().split(' ');
 		let now = new Date();
 
 		let monthLookup = {
@@ -46,6 +46,7 @@ export async function scrapeLouisvilleJazzSociety() {
 		let year = dateArr[2].includes('20') ? dateArr[2] : now.getFullYear();
 		let month = monthLookup[dateArr[0]];
 		let day = dateArr[1];
+		let formattedDay = ('0' + day.replace(',', '')).slice(-2);
  
 		let startTime = dateArr[dateArr.indexOf('–') - 2];
 		let isAM = dateArr[dateArr.indexOf('–') - 1] === 'am';
@@ -53,7 +54,7 @@ export async function scrapeLouisvilleJazzSociety() {
 		let hour = isAM ? timeArr[0] : +timeArr[0] + 12; 
 		let formattedHour = ('0' + hour).slice(-2);
 
-		let parsableDate = `${year}-${month}-${day}T${formattedHour}:${timeArr[1]}:00`;
+		let parsableDate = `${year}-${month}-${formattedDay}T${formattedHour}:${timeArr[1]}:00`;
 		let epoch = Date.parse(parsableDate);
 
 		// Tidy up data and push to events array
