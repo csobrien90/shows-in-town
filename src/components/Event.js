@@ -1,10 +1,9 @@
 import React from 'react';
 
 const Event = ({ data }) => {
-	console.log(data.epoch)
 	return (
 		<article>
-			<a href={data.link}>
+			<a href={data.link} target="_blank" rel="noopener noreferrer">
 				<h3>{data.title}</h3>
 			</a>
 			<p>{data.address}</p>

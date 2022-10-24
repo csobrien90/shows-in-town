@@ -7,7 +7,10 @@ const Timeline = () => {
 	useEffect(() => {
 		fetch('http://localhost:500')
 			.then(res => res.json())
-			.then(res => setData(res))
+			.then(res => {
+				res.sort((a, b) => {return a.epoch-b.epoch});
+				setData(res)
+			})
 	}, [])
 
 	return (
