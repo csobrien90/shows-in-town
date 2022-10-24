@@ -6,18 +6,35 @@ There is not one central repository for concerts in Louisville - music lovers in
 
 ## How to contribute
 
+Please feel free to create a new issue or pick up an open one. The most welcome contribution will always be new scrapers. If you've found an online resource listing live music in Louisville, follow the steps below to add those events to this list:
 
+1. add a new file `{Resource}.js` in */src/api/scrapers* 
+	- export an async function called `scrape{Resource}`
+	- it should return an array of event objects with these keys: `{ title, address, time,	epoch, desc, link }`
+2. pull the resource into *src/api/getEvents.js* by adding:
+	- an import statement
+	- a variable definition in the destructing array
+	- a call to your scraper function in the `Promise.all` array
+	- your resultant array, spread into the return array
+3. update this README to include
+	- the new resource in the *Scrapers > Done* section
+	- your name in *Current developers > Contributors* below
 
+### Guidelines
+
+- One of the top priorities for this project must be to compile events equitably. As the number of scraped sites grows, maintainers and contributors will ensure that music from venues all around the city by all sorts of performers are presented without bias, conscious or unconscious.
 
 ## Scrapers
-*The approach to scaling this app will be to gradually pull event data from more venues, musicians' sites, organization calendars, etc.*
+*The approach to scaling this app will be to gradually pull event data from (scrape) new Resources: venues, musicians' sites, organization calendars, etc.*
 
 ### Done
 
 - Louisville Jazz Society
+- Headliners
 
 ### To do
 
+- *List potential resources here...*
 
 
 ## Current developers
