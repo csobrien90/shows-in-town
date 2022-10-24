@@ -104,4 +104,4 @@ export async function scrapeHeadliners() {
 
 }
 
-console.log(await scrapeHeadliners())
+// console.log(await scrapeHeadliners())

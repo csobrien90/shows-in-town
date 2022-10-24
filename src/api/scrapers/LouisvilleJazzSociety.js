@@ -75,4 +75,4 @@ export async function scrapeLouisvilleJazzSociety() {
 
 }
 
-console.log(await scrapeLouisvilleJazzSociety())
+// console.log(await scrapeLouisvilleJazzSociety())
