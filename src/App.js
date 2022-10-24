@@ -1,11 +1,13 @@
 import React from 'react';
+import Timeline from './components/Timeline';
 
-class App extends React.Component {
-	render() {
-		return (
-			<main>CONTENT</main>
-		)
-	}
+const App = () => {
+	return (
+		<main>
+			<h1>Shows In Town</h1>
+			<Timeline />
+		</main>
+	)
 }
 
 export default App;

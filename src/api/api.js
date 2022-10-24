@@ -7,7 +7,8 @@ async function startApi() {
 	try {
 		api.get('/', {}, async (request, reply) => {
 			const events = await getEvents();
-			reply.send({events})
+			reply.header("Access-Control-Allow-Origin", "*");
+			reply.send(JSON.stringify(events))
 		})
 
 		await api.listen({port: 500});
