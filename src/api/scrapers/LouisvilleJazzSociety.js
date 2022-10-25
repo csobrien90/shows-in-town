@@ -6,7 +6,7 @@ export async function scrapeLouisvilleJazzSociety() {
 	const page = await browser.newPage()
 	
 	// Get page content
-	await page.goto('https://louisvillejazz.org/?post_type=tribe_events&posts_per_page=250')
+	await page.goto('https://louisvillejazz.org/?post_type=tribe_events&posts_per_page=150')
 	let eventsElements = await page.$$('.tribe-events-calendar-list__event-row')
 	
 	// Iterate over elements and populate events array
@@ -56,6 +56,8 @@ export async function scrapeLouisvilleJazzSociety() {
 
 		let parsableDate = `${year}-${month}-${formattedDay}T${formattedHour}:${timeArr[1]}:00`;
 		let epoch = Date.parse(parsableDate);
+		
+		if (epoch < Date.parse(now) - 10800000) continue;
 
 		// Tidy up data and push to events array
 		events.push({

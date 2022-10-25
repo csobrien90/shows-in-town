@@ -84,7 +84,9 @@ export async function scrapeHeadliners() {
 
 		let parsableDate = `${year}-${month}-${day}T${formattedHour}:${minutes}:00`;
 		let epoch = Date.parse(parsableDate);
-		
+
+		if (epoch < Date.parse(now) - 1080000) continue;
+
 		// Tidy up data and push to events array
 		events.push({
 			title: title.trim(),
