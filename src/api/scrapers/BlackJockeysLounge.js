@@ -76,7 +76,7 @@ export async function scrapeBlackJockeysLounge() {
 		let parsableDate = `${year}-${month}-${day}T${formattedHour}:${minutes}:00`;
 		let epoch = Date.parse(parsableDate);
 		
-		if (epoch < Date.parse(now) - 1080000) continue;
+		if (epoch < Date.parse(now) - 10800000) continue;
 
 		// Tidy up data and push to events array
 		events.push({
