@@ -32,6 +32,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Louisville Jazz Society
 - Headliners
 - Black Jockey's Lounge
+- Stevie Rays Blues Bar
 
 ### To do
 
