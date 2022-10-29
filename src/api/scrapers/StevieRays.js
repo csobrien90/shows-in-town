@@ -47,9 +47,9 @@ export async function scrapeStevieRays() {
 			title: shortenedTitle,
 			address: `${e.location.addressTitle} - ${e.location.addressLine1} ${e.location.addressLine2}`,
 			time: `${new Date(e.startDate).toLocaleTimeString()} - ${new Date(e.endDate).toLocaleTimeString()}`,
-			epoch,
 			desc: title,
-			link: 'https://www.stevieraysbluesbar.com' + e.fullUrl
+			link: 'https://www.stevieraysbluesbar.com' + e.fullUrl,
+			epoch
 		});
 	}
 
