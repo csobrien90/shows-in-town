@@ -34,10 +34,23 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Black Jockey's Lounge
 - Stevie Rays Blues Bar
 
+### In Progress
+
+- Zanzabar
+
 ### To do
+*List potential resources here*
 
-- *List potential resources here...*
-
+- Venues listed on do502.com
+	- Mercury Ballroom
+	- Louisville Palace
+	- Kaiju
+	- Mag Bar
+	- Gravely
+	- Kentucky Center
+	- KFC YUM! Center
+	- Iroquis Amphitheater
+	- Living Room Series
 
 ## Current developers
 
@@ -46,5 +59,6 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Chad O'Brien
 
 ### Contributors
+*This could be you!*
 
-- (This could be you!)
+- Meghan Pund
