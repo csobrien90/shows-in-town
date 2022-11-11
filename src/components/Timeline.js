@@ -36,17 +36,10 @@ const Timeline = () => {
 				if (isPastEvent(event.epoch)) return false
 
 				// If event is first of its date, render date header
-				if (index === 0) {
+				if (index === 0 || isNewDay(event.epoch, data[index-1].epoch)) {
 					return (
 						<React.Fragment key={index}>
-							<DayHeader epoch={null} isToday={true} />
-							<Event data={event} />
-						</React.Fragment>
-					)
-				} else if (isNewDay(event.epoch, data[index-1].epoch)) {
-					return (
-						<React.Fragment key={index}>
-							<DayHeader epoch={event.epoch} isToday={false} />
+							<DayHeader epoch={event.epoch} />
 							<Event data={event} />
 						</React.Fragment>
 					)
