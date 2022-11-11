@@ -39,11 +39,14 @@ html {
 
 body {
 	font-size: 10px;
-	background-color: var(--primaryBackground);
+	background-color: lightgray;
 }
 
 main {
+	margin: 0 auto;
 	padding: 1em;
+	max-width: 768px;
+	background-color: var(--primaryBackground);
 }
 
 hr {
@@ -203,11 +206,39 @@ Media queries
 */
 
 @media screen and (min-width: 500px) {
+	body {
+		font-size: 11px;
+	}
 
+	main {
+		padding: 1.5em;
+	}
+
+	h1 {
+		font-size: 5.5em;
+	}
+
+	hr {
+		margin: 0 -1.5em .8em;
+	}
 }
 
 @media screen and (min-width: 768px) {
+	body {
+		font-size: 12px;
+	}
 
+	main {
+		padding: 2em;
+	}
+
+	h1 {
+		font-size: 6em;
+	}
+
+	hr {
+		margin: 0 -2em .8em;
+	}
 }
   
 @media screen and (min-width: 1040px) {
