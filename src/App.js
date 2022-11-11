@@ -7,7 +7,7 @@ const App = () => {
 			<header>
 				<h1>Shows In Town</h1>
 				<hr />
-				<p>Live music in Louisville</p>
+				<p className='subtitle'>live music in Louisville</p>
 			</header>
 			<Timeline />
 		</main>

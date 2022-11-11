@@ -6,9 +6,9 @@ const Event = ({ data }) => {
 			<a href={data.link} target="_blank" rel="noopener noreferrer">
 				<h3>{data.title}</h3>
 			</a>
-			<p>{data.address}</p>
-			<p>{data.time}</p>
-			<p>{data.desc}</p>
+			<p className='event-address'>{data.address}</p>
+			<p className='event-time'>{data.time}</p>
+			<p className='event-description'>{data.desc}</p>
 		</article>
 	)
 }

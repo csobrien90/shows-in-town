@@ -2,9 +2,10 @@ import React from 'react';
 
 const DayHeader = ({ epoch }) => {
 	const now = new Date()
+	const thisEventDate = new Date(epoch)
+	const headerId = new Date(epoch).setHours(0,0,0,0)
 	
-	const formatDate = (epoch) => {
-		const thisEventDate = new Date(epoch)
+	const formatDate = () => {
 		const options = { weekday: 'long', month: 'long', day: 'numeric' }
 		
 		// Only display the year if not this year
@@ -13,18 +14,16 @@ const DayHeader = ({ epoch }) => {
 		return thisEventDate.toLocaleDateString('en-us', options)
 	}
 
-	const isToday = (epoch) => {
-		const thisEventDate = new Date(epoch)
-
+	const isToday = () => {
 		return now.getFullYear() === thisEventDate.getFullYear() 
 		&& now.getMonth() === thisEventDate.getMonth() 
 		&& now.getDate() === thisEventDate.getDate()
 	}
 	
 	return (
-		<header className='dayHeader'>
+		<header className='dayHeader' id={headerId}>
 			<div></div>
-			<h2>{isToday(epoch) ? 'TODAY' : formatDate(epoch)}</h2>
+			<h2>{isToday() ? 'TODAY' : formatDate()}</h2>
 			<div></div>
 		</header>
 	)
