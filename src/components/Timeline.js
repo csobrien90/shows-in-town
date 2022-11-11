@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import DayHeader from './DayHeader';
 import Event from './Event';
 
 const Timeline = () => {
@@ -13,12 +14,47 @@ const Timeline = () => {
 			})
 	}, [])
 
+	const isNewDay = (epoch, prevEpoch) => {
+		// Return true if epoch is not the same day as prevEpoch
+		const prevEventDate = new Date(prevEpoch)
+		const thisEventDate = new Date(epoch)
+		
+		return prevEventDate.getFullYear() !== thisEventDate.getFullYear() 
+			|| prevEventDate.getMonth() !== thisEventDate.getMonth() 
+			|| prevEventDate.getDate() !== thisEventDate.getDate()
+	}
+
+	const isPastEvent = (epoch) => {
+		const today = new Date(new Date().setHours(0,0,0,0))
+		return epoch < today
+	}
+
 	return (
 		<>
 			{data && data.map((event, index) => {
-				return (
-					<Event data={event} key={index} />
-				)
+				// Skip event if it is in the past
+				if (isPastEvent(event.epoch)) return false
+
+				// If event is first of its date, render date header
+				if (index === 0) {
+					return (
+						<React.Fragment key={index}>
+							<DayHeader epoch={null} isToday={true} />
+							<Event data={event} />
+						</React.Fragment>
+					)
+				} else if (isNewDay(event.epoch, data[index-1].epoch)) {
+					return (
+						<React.Fragment key={index}>
+							<DayHeader epoch={event.epoch} isToday={false} />
+							<Event data={event} />
+						</React.Fragment>
+					)
+				} else {
+					return (
+						<Event data={event} key={index} />
+					)
+				}
 			})}
 		</>
 	)

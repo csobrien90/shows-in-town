@@ -4,7 +4,11 @@ import Timeline from './components/Timeline';
 const App = () => {
 	return (
 		<main>
-			<h1>Shows In Town</h1>
+			<header>
+				<h1>Shows In Town</h1>
+				<hr />
+				<p>Live music in Louisville</p>
+			</header>
 			<Timeline />
 		</main>
 	)
