@@ -23,7 +23,7 @@ const DayHeader = ({ epoch }) => {
 	return (
 		<header className='dayHeader' id={headerId}>
 			<div></div>
-			<h2>{isToday() ? 'TODAY' : formatDate()}</h2>
+			<h2>{isToday() ? 'Today' : formatDate()}</h2>
 			<div></div>
 		</header>
 	)

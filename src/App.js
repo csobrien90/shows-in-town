@@ -10,6 +10,7 @@ const App = () => {
 				<p className='subtitle'>live music in Louisville</p>
 			</header>
 			<Timeline />
+			<a href="#top" id='topLink'>Top ↑</a>
 		</main>
 	)
 }
