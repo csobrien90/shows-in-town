@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DayHeader from './DayHeader';
 import Event from './Event';
 
-const Timeline = () => {
+const Timeline = ({ setIsLoading }) => {
 	const [data, setData] = useState(null)
 
 	useEffect(() => {
@@ -11,8 +11,9 @@ const Timeline = () => {
 			.then(res => {
 				res.sort((a, b) => {return a.epoch-b.epoch});
 				setData(res)
+				setIsLoading(false)
 			})
-	}, [])
+	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 	const isNewDay = (epoch, prevEpoch) => {
 		// Return true if epoch is not the same day as prevEpoch

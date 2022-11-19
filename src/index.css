@@ -159,6 +159,11 @@ header:nth-of-type(2) {
 	background-color: black;
 }
 
+.noMoreEvents {
+	text-align: center;
+	font-weight: bold;
+	margin: 2em;
+}
 
 /*
 __________________
