@@ -33,10 +33,11 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Headliners
 - Black Jockey's Lounge
 - Stevie Rays Blues Bar
+- Zanzabar
 
 ### In Progress
 
-- Zanzabar
+*none currently pending*
 
 ### To do
 *List potential resources here*
