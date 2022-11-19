@@ -1,39 +1,38 @@
-import axios from "axios";
+import axios from "axios"
+import {unEscapeWordPressHTML} from '../utilities.js'
 
 export async function scrapeZanzabar() {
 	// Get events from exposed WordPress REST API endpoint
 	const response = await axios.get('https://www.zanzabarlouisville.com/wp-json/tribe/events/v1/events')
 	const rawEvents = response.data
-	
-	return rawEvents
 
 	// Iterate over elements and populate events array
 	let events = [];
-	for (let e of rawEvents) {
-		const epoch = e.startDate
-		if (epoch < Date.parse(now) - 10800000) continue
-
-		const title = e.title
-		if (title.includes('AVAILABLE FOR SPECIAL EVENTS')) continue
-		
-		let firstTitle = title.split('(').shift().trim()
-		let secondaryTitle = null
-		if (title.includes('-----')) secondaryTitle = title.split('-----')[1].split('(')[0].trim()
-		let shortenedTitle = secondaryTitle ?  `${firstTitle} and ${secondaryTitle}` : firstTitle
-
-		// Tidy up data and push to events array
-		events.push({
-			title: shortenedTitle,
-			address: `${e.location.addressTitle} - ${e.location.addressLine1} ${e.location.addressLine2}`,
-			time: `${new Date(e.startDate).toLocaleTimeString()} - ${new Date(e.endDate).toLocaleTimeString()}`,
-			desc: title,
-			link: 'https://www.Zanzabarbluesbar.com' + e.fullUrl,
-			epoch
-		});
-	}
+	rawEvents.events.forEach(event => {
+		try {
+			const {title, description, url, start_date, end_date, cost} = event
+	
+			// Prepare times
+			const epoch = Date.parse(start_date)
+			const startTime = new Date(start_date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+			const endTime = new Date(end_date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+	
+			// Tidy up data and push to events array
+			events.push({
+				title,
+				address: 'Zanzabar - 2100 S Preston St, Louisville, KY 40217',
+				time: `${startTime} - ${endTime}`,
+				desc: unEscapeWordPressHTML(description) + ` --- Ticket cost: ${cost}`,
+				link: url,
+				epoch
+			});
+		} catch (e) {
+			console.error(e)
+		}
+	})
 
 	return events
 
 }
 
-console.log(await scrapeZanzabar())
+// console.log(await scrapeZanzabar())
