@@ -35,6 +35,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Stevie Rays Blues Bar
 - Zanzabar
 - Mag Bar
+- Mercury Ballroom
 
 ### In Progress
 
@@ -44,7 +45,6 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 *List potential resources here*
 
 - Venues listed on do502.com
-	- Mercury Ballroom
 	- Louisville Palace
 	- Kaiju
 	- Gravely

@@ -4,6 +4,7 @@ import { scrapeBlackJockeysLounge } from "./scrapers/BlackJockeysLounge.js";
 import { scrapeStevieRays } from "./scrapers/StevieRays.js";
 import { scrapeZanzabar } from "./scrapers/Zanzabar.js";
 import { scrapeMagBar } from "./scrapers/MagBar.js";
+import { scrapeMercuryBallroom } from "./scrapers/MercuryBallroom.js";
 
 export async function getEvents() {
 	const [headliners,
@@ -11,14 +12,16 @@ export async function getEvents() {
 		blackJockeysLounge,
 		stevieRays,
 		zanzabar,
-		magBar
+		magBar,
+		mercuryBallroom,
 	] = await Promise.all([
 		scrapeHeadliners(),
 		scrapeLouisvilleJazzSociety(),
 		scrapeBlackJockeysLounge(),
 		scrapeStevieRays(),
 		scrapeZanzabar(),
-		scrapeMagBar()
+		scrapeMagBar(),
+		scrapeMercuryBallroom()
 	])
 
 	return [
@@ -27,6 +30,7 @@ export async function getEvents() {
 		...blackJockeysLounge,
 		...stevieRays,
 		...zanzabar,
-		...magBar
+		...magBar,
+		...mercuryBallroom
 	];
 }
