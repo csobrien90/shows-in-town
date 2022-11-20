@@ -135,9 +135,35 @@ Timeline
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 */
 
+.subheading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
 .subtitle {
 	font-size: 1.8em;
 	font-style: italic;
+}
+
+input[type="date"] {
+	width: 2em;
+	height: 2em;
+	background-color: rgba(0, 0, 0, 0);
+	position: relative;
+	border: none;
+	color: rgba(0,0,0,0);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
 }
 
 .dayHeader {
