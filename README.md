@@ -34,6 +34,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Black Jockey's Lounge
 - Stevie Rays Blues Bar
 - Zanzabar
+- Mag Bar
 
 ### In Progress
 
@@ -46,7 +47,6 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 	- Mercury Ballroom
 	- Louisville Palace
 	- Kaiju
-	- Mag Bar
 	- Gravely
 	- Kentucky Center
 	- KFC YUM! Center
