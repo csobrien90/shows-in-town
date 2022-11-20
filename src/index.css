@@ -147,23 +147,30 @@ Timeline
 }
 
 input[type="date"] {
+	position: relative;
 	width: 2em;
 	height: 2em;
-	background-color: rgba(0, 0, 0, 0);
-	position: relative;
-	border: none;
 	color: rgba(0,0,0,0);
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	padding: 1.2em;
+	border-radius: 5px;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
 	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
+	left: 5%;
+	top: 8%;
+	width: 90%;
+	height: 90%;
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
+}
+
+input[type="date"]:hover, input[type="date"]::-webkit-calendar-picker-indicator:focus {
+	filter: invert(1);
+	background-color: white;
 }
 
 .dayHeader {

@@ -12,18 +12,18 @@ const Datepicker = () => {
 		if (headerIds.includes(selectedEpoch)) {
 			document.getElementById(selectedEpoch).scrollIntoView()
 		} else {
-			headerIds.forEach(id => {
-				if (+selectedEpoch < +id) {
-					document.getElementsByTagName('h1')[0].scrollIntoView()
-				} else {
-					document.getElementById(id).scrollIntoView()	
+			if (+selectedEpoch < headerIds[0]) document.getElementsByTagName('h1')[0].scrollIntoView()
+
+			for (let i = 0; i < headerIds.length; i++) {
+				if (selectedEpoch > headerIds[i] && selectedEpoch < headerIds[i+1]){
+					document.getElementById(headerIds[i+1]).scrollIntoView()
 				}
-			})
+			}
 		}
 
 	}
 
-	return (<input type='date' onChange={jumpToDate} />)
+	return (<input type='date' onChange={jumpToDate} aria-label='Jump to date' title='Jump to date'/>)
 }
 
 export default Datepicker;
