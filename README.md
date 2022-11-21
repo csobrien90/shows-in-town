@@ -36,6 +36,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Zanzabar
 - Mag Bar
 - Mercury Ballroom
+- Louisville Orchestra
 
 ### In Progress
 

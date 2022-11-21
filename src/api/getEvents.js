@@ -14,6 +14,7 @@ export async function getEvents() {
 		zanzabar,
 		magBar,
 		mercuryBallroom,
+		louisvilleOrchestra
 	] = await Promise.all([
 		scrapeHeadliners(),
 		scrapeLouisvilleJazzSociety(),
@@ -21,7 +22,8 @@ export async function getEvents() {
 		scrapeStevieRays(),
 		scrapeZanzabar(),
 		scrapeMagBar(),
-		scrapeMercuryBallroom()
+		scrapeMercuryBallroom(),
+		scrapeLouisvilleOrchestra()
 	])
 
 	return [
@@ -31,6 +33,7 @@ export async function getEvents() {
 		...stevieRays,
 		...zanzabar,
 		...magBar,
-		...mercuryBallroom
+		...mercuryBallroom,
+		...louisvilleOrchestra
 	];
 }
