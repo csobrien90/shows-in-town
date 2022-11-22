@@ -19,6 +19,8 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 3. update this README to include
 	- the new resource in the *Scrapers > Done* section
 	- your name in *Current developers > Contributors* below
+4. (Extra bonus option) Create some unit tests for your scraper
+	- file should be named `{YourComponentName}.test.js`
 
 ### Guidelines
 
