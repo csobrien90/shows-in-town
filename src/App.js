@@ -6,18 +6,20 @@ const App = () => {
 	const [isLoading, setIsLoading] = useState(true)
 
 	return (
-		<main>
+		<main className={isLoading ? 'loading' : ''}>
 			<header>
 				<h1>Shows In Town</h1>
 				<hr />
-				<div className='subheading'>
-					<p className='subtitle'>live music in Louisville</p>
-					<Datepicker />
-				</div>
+				{isLoading && <p className='subtitle'>Finding live music in Louisville...</p>}
+				{!isLoading && (
+					<div className='subheading'>
+						<p className='subtitle'>live music in Louisville</p>
+						<Datepicker />
+					</div>
+				)}
 			</header>
 			<Timeline setIsLoading={setIsLoading} />
-			{!isLoading && <p className='noMoreEvents'>-no more events to show - check back later-</p>}
-			<a href="#top" id='topLink'>Top ↑</a>
+			{!isLoading && <a href="#top" id='topLink'>Top ↑</a>}
 		</main>
 	)
 }

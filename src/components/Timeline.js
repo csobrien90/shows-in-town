@@ -50,6 +50,7 @@ const Timeline = ({ setIsLoading }) => {
 					)
 				}
 			})}
+			{data && <p className='noMoreEvents'>-no more events to show - check back later-</p>}
 		</>
 	)
 }

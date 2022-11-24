@@ -47,6 +47,8 @@ main {
 	padding: 1em;
 	max-width: 768px;
 	background-color: var(--primaryBackground);
+	min-height: 100vh;
+	transition: all .5s;
 }
 
 hr {
@@ -128,6 +130,47 @@ section {}
 }
 
 
+/*
+__________________
+Loading
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+*/
+
+.loading {
+	padding: 0 10em;
+}
+
+header:first-of-type {
+	display: grid;
+	min-height: 0;
+	transition: all 1s;
+	align-content: center;
+}
+
+.loading header:first-of-type {
+	min-height: 90vh;
+}
+
+.loading .subtitle {
+	max-width: fit-content;
+	overflow: hidden;
+	border-right: .15em solid black;
+	white-space: nowrap;
+	animation: 
+	  typing 5s steps(60, end),
+	  blink-caret .5s step-end infinite;
+}
+  
+@keyframes typing {
+	from { width: 0 }
+	to { width: 100% }
+}
+
+@keyframes blink-caret {
+	from, to { border-color: transparent }
+	50% { border-color: black; }
+}
+
 
 /*
 __________________
@@ -144,6 +187,7 @@ Timeline
 .subtitle {
 	font-size: 1.8em;
 	font-style: italic;
+	letter-spacing: .05em;
 }
 
 input[type="date"] {
