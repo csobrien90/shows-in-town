@@ -5,6 +5,7 @@ import { scrapeStevieRays } from "./scrapers/StevieRays.js";
 import { scrapeZanzabar } from "./scrapers/Zanzabar.js";
 import { scrapeMagBar } from "./scrapers/MagBar.js";
 import { scrapeMercuryBallroom } from "./scrapers/MercuryBallroom.js";
+import { scrapeLouisvilleOrchestra } from "./scrapers/LouisvilleOrchestra.js";
 
 export async function getEvents() {
 	const [headliners,

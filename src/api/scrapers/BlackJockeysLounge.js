@@ -17,11 +17,20 @@ export async function scrapeBlackJockeysLounge() {
 	for (let e of eventsElements) {
 		try {
 			// Extract data
-			let [title, date, time] = await Promise.all([
+			let [title, date, time] = await Promise.allSettled([
 				e.$eval('p:nth-of-type(1)', el => el.innerText),
 				e.$eval('p:nth-of-type(2)', el => el.innerText),
 				e.$eval('p:nth-of-type(3)', el => el.innerText),
 			]);
+
+			// Confirm data is valid
+			if (title.status === 'rejected' || date.status === 'rejected' || time.status === 'rejected') {
+				continue
+			} else {
+				title = title.value
+				date = date.value
+				time = time.value
+			}
 
 			// make dateTime and description strings
 			let desc = '';
