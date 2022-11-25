@@ -47,4 +47,4 @@ export async function scrapeParistownHall() {
 
 }
 
-console.log(await scrapeParistownHall())
+// console.log(await scrapeParistownHall())

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function scrapeIroqouisAmphitheater() {
-	// Get eventData from Mercury Ballroom API
+	// Get eventData from do502 API
 	const iroqouisAmphitheaterUrl = 'https://do502.com/venues/iroquois-amphitheater?format=json'
 	const eventData = await axios.get(iroqouisAmphitheaterUrl)
 
