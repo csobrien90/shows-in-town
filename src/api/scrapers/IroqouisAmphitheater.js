@@ -1,0 +1,49 @@
+import axios from "axios";
+
+export async function scrapeIroqouisAmphitheater() {
+	// Get eventData from Mercury Ballroom API
+	const iroqouisAmphitheaterUrl = 'https://do502.com/venues/iroquois-amphitheater?format=json'
+	const eventData = await axios.get(iroqouisAmphitheaterUrl)
+
+	// Iterate over elements and populate events array
+	let events = [];
+	for (let e of eventData.data.event_groups) {
+		try {
+			// Destructure event data
+			const event = e.events[0]
+			const { title, description, permalink, tz_adjusted_begin_date } = event
+
+			// Define epoch and time
+			const epoch = Date.parse(new Date(tz_adjusted_begin_date))
+			const dateStringOptions = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute:'2-digit' }
+			const time = new Date(epoch).toLocaleDateString('en-us', dateStringOptions)
+
+			// Build description
+			let desc = description ? description : ''
+			if (!event.is_free) {
+				if (!event.ticket_info) event.ticket_info = 'TBA'
+				desc += ` --- Ticket cost: ${event.ticket_info}`
+			} else {
+				desc += ' --- FREE'
+			}
+
+			// Tidy up data and push to events array
+			events.push({
+				title,
+				address: 'Iroqouis Amphitheater - 1080 Amphitheater Rd, Louisville, KY 40214',
+				time,
+				desc,
+				link: `https://do502.com${permalink}`,
+				epoch
+			});
+			
+		} catch (e) {
+			console.error(e)
+		}
+	}
+
+	return events
+
+}
+
+// console.log(await scrapeIroqouisAmphitheater())

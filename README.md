@@ -39,6 +39,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Mag Bar
 - Mercury Ballroom
 - Louisville Orchestra
+- Iroquis Amphitheater
 
 ### In Progress
 
@@ -53,7 +54,6 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 	- Gravely
 	- Kentucky Center
 	- KFC YUM! Center
-	- Iroquis Amphitheater
 	- Living Room Series
 
 ## Current developers
