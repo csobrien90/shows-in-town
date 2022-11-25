@@ -40,6 +40,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Mercury Ballroom
 - Louisville Orchestra
 - Iroquis Amphitheater
+- Old Forester's Paristown Hall
 
 ### In Progress
 
