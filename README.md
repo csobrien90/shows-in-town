@@ -41,6 +41,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Louisville Orchestra
 - Iroquis Amphitheater
 - Old Forester's Paristown Hall
+- Louisville Palace
 
 ### In Progress
 
@@ -51,7 +52,6 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 
 - [Gerstle's](https://www.gerstles.com/louisville/wp-json)
 - Venues listed on do502.com
-	- Louisville Palace
 	- Kaiju
 	- Gravely
 	- Kentucky Center

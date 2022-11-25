@@ -8,6 +8,7 @@ import { scrapeMercuryBallroom } from "./scrapers/MercuryBallroom.js";
 import { scrapeLouisvilleOrchestra } from "./scrapers/LouisvilleOrchestra.js";
 import { scrapeIroqouisAmphitheater } from "./scrapers/IroqouisAmphitheater.js";
 import { scrapeParistownHall } from "./scrapers/ParistownHall.js";
+import { scrapeLouisvillePalace } from "./scrapers/LouisvillePalace.js";
 
 export async function getEvents() {
 	const [headliners,
@@ -19,7 +20,8 @@ export async function getEvents() {
 		mercuryBallroom,
 		louisvilleOrchestra,
 		iroqouisAmphitheater,
-		paristownHall
+		paristownHall,
+		louisvillePalace
 	] = await Promise.all([
 		scrapeHeadliners(),
 		scrapeLouisvilleJazzSociety(),
@@ -30,7 +32,8 @@ export async function getEvents() {
 		scrapeMercuryBallroom(),
 		scrapeLouisvilleOrchestra(),
 		scrapeIroqouisAmphitheater(),
-		scrapeParistownHall()
+		scrapeParistownHall(),
+		scrapeLouisvillePalace()
 	])
 
 	return [
@@ -43,6 +46,7 @@ export async function getEvents() {
 		...mercuryBallroom,
 		...louisvilleOrchestra,
 		...iroqouisAmphitheater,
-		...paristownHall
+		...paristownHall,
+		...louisvillePalace
 	];
 }
