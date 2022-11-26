@@ -4,14 +4,14 @@ configure({ adapter: new Adapter() })
 
 import App from '../App'
 
-// Test App component
-it("renders without crashing", () => {
-	shallow(<App />)
-})
-
-// Test for h1 element in App component
-it("renders App h1", () => {
-	const wrapper = shallow(<App />)
-	const welcome = <h1>Shows In Town</h1>
-	expect(wrapper.contains(welcome)).toEqual(true)
+describe("<App />", () => {
+	it("renders without crashing", () => {
+		shallow(<App />)
+	})
+	
+	it("renders App h1", () => {
+		const wrapper = shallow(<App />)
+		const welcome = <h1>Shows In Town</h1>
+		expect(wrapper.contains(welcome)).toEqual(true)
+	})
 })

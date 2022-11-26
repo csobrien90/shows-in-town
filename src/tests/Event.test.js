@@ -23,7 +23,7 @@ describe("", () => {
 
 	// Test for title in Event component
 	it("contains event title", () => {
-		const wrapper = mount(<Event data={event} />)
+		const wrapper = shallow(<Event data={event} />)
 		const value = wrapper.find("h3").text()
 		expect(value).toEqual("Event Title")
 	})
