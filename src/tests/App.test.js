@@ -1,7 +1,6 @@
-import { configure, mount } from "enzyme"
+import { configure, shallow } from "enzyme"
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17"
 configure({ adapter: new Adapter() })
-import {shallow} from 'enzyme'
 
 import App from '../App'
 
