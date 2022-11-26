@@ -6,6 +6,10 @@ import DayHeader from '../components/DayHeader'
 
 // Test DayHeader component
 describe("<DayHeader />", () => {
+	it("renders without crashing", () => {
+		shallow(<DayHeader epoch={Date.parse(new Date())} />)
+	})
+
 	it("renders 'Today' h2 when epoch is now", () => {
 		const todayEpoch = Date.parse(new Date())
 		const wrapper = shallow(<DayHeader epoch={todayEpoch}/>)

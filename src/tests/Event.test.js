@@ -4,7 +4,7 @@ configure({ adapter: new Adapter() })
 
 import Event from '../components/Event'
 
-// Test Event component
+// Event mock data
 const event = {
 	title: "Event Title",
 	address: '123 Main St',
@@ -14,14 +14,16 @@ const event = {
 	epoch: 1609459200
 }
 
-describe("", () => {
-	// Test for event as data in Event component props 
+describe("<Event />", () => {
+	it("renders without crashing", () => {
+		shallow(<Event data={event} />)
+	})
+
 	it("accepts event props", () => {
 		const wrapper = mount(<Event data={event} />)
 		expect(wrapper.props().data).toEqual(event)
 	})
 
-	// Test for title in Event component
 	it("contains event title", () => {
 		const wrapper = shallow(<Event data={event} />)
 		const value = wrapper.find("h3").text()
