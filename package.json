@@ -48,5 +48,10 @@
   },
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0"
+  },
+  "jest": {
+	"coveragePathIgnorePatterns": [
+		"<rootDir>/src/index.js"
+	]
   }
 }

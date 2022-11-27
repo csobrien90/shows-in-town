@@ -18,7 +18,7 @@ const App = () => {
 					</div>
 				)}
 			</header>
-			<Timeline setIsLoading={setIsLoading} />
+			<Timeline setIsLoading={isLoading} />
 			{!isLoading && <a href="#top" id='topLink'>Top ↑</a>}
 		</main>
 	)

@@ -5,13 +5,17 @@ configure({ adapter: new Adapter() })
 import App from '../App'
 
 describe("<App />", () => {
+	const wrapper = shallow(<App />)
+
 	it("renders without crashing", () => {
-		shallow(<App />)
+		expect(wrapper).toBeTruthy()
 	})
-	
-	it("renders App h1", () => {
-		const wrapper = shallow(<App />)
-		const welcome = <h1>Shows In Town</h1>
-		expect(wrapper.contains(welcome)).toEqual(true)
+
+	it("renders App main tag with loading class", () => {
+		expect(wrapper.find("main").hasClass("loading")).toEqual(true)
+	})
+
+	it("renders App with 'Shows in Town' h1", () => {
+		expect(wrapper.find("h1").text()).toEqual("Shows In Town")
 	})
 })
