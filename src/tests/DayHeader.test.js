@@ -44,8 +44,8 @@ describe("<DayHeader />", () => {
 		const wrapperThisYear = shallow(<DayHeader epoch={Date.parse(januaryFirstThisYear)}/>)
 
 		// Confirm header date from this year has been formatted without year
-		const localizedDateString2 = januaryFirstThisYear.toLocaleDateString('en-us', { weekday: 'long', month: 'long', day: 'numeric' })
-		const januaryFirstThisYearHeader = <h2>{localizedDateString2}</h2>
+		const localizedDateStringThisYear = januaryFirstThisYear.toLocaleDateString('en-us', { weekday: 'long', month: 'long', day: 'numeric' })
+		const januaryFirstThisYearHeader = <h2>{localizedDateStringThisYear}</h2>
 		expect(wrapperThisYear.contains(januaryFirstThisYearHeader)).toEqual(true)
 	})
 })
