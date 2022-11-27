@@ -30,13 +30,22 @@ describe("<DayHeader />", () => {
 	})
 
 	it("renders formatted date h2 when epoch is not today", () => {
-		// Render DayHeader for epoch 0
+		// Render DayHeader with epoch for January 1st 1970
 		let zeroEpochDate = new Date(0)
-		const wrapper = shallow(<DayHeader epoch={0}/>)
+		const wrapper1970 = shallow(<DayHeader epoch={0}/>)
 		
-		// Confirm header date has been formatted
+		// Confirm header date from another year has been formatted with year
 		const localizedDateString = zeroEpochDate.toLocaleDateString('en-us', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })
 		const zeroEpochHeader = <h2>{localizedDateString}</h2>
-		expect(wrapper.contains(zeroEpochHeader)).toEqual(true)
+		expect(wrapper1970.contains(zeroEpochHeader)).toEqual(true)
+
+		// Render DayHeader with epoch for January 1st this year
+		const januaryFirstThisYear = new Date(new Date().getFullYear(), 0, 1)
+		const wrapperThisYear = shallow(<DayHeader epoch={Date.parse(januaryFirstThisYear)}/>)
+
+		// Confirm header date from this year has been formatted without year
+		const localizedDateString2 = januaryFirstThisYear.toLocaleDateString('en-us', { weekday: 'long', month: 'long', day: 'numeric' })
+		const januaryFirstThisYearHeader = <h2>{localizedDateString2}</h2>
+		expect(wrapperThisYear.contains(januaryFirstThisYearHeader)).toEqual(true)
 	})
 })
