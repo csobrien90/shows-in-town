@@ -11,10 +11,7 @@ export async function scrapeKFCYumCenter() {
 	for (let e of eventData.data._embedded.events) {
 		try {
 			// Destructure event data
-			const { name, dates, url, priceRanges, doorsTimes, _embedded, classifications } = e
-
-			// Confirm that the event is a concert
-			if (classifications[0].segment.name !== 'Music') continue
+			const { name, dates, url, priceRanges, doorsTimes, _embedded } = e
 
 			// Build address
 			const venue = _embedded.venues[0]
