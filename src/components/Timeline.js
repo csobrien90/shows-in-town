@@ -1,17 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import DayHeader from './DayHeader';
 import Event from './Event';
+import stringSimilarity from 'string-similarity';
 
 const Timeline = ({ setIsLoading }) => {
 	const [data, setData] = useState(null)
+	const [allUniqueLocations, setAllUniqueLocations] = useState(null)
 
 	useEffect(() => {
 		fetch('http://localhost:500')
 			.then(res => res.json())
 			.then(res => {
+				// Set fetched data and falsify loading status
 				res.sort((a, b) => {return a.epoch-b.epoch});
 				setData(res)
 				setIsLoading(false)
+
+				// Get all unique locations
+				const allLocations = [...new Set(res.map(event => event.address))];
+				
+				// only include one location of groups with 90% similar name
+				const uniqueLocations = allLocations.filter((location, index) => {
+					const similarLocations = allLocations.filter((location2, index2) => {
+						if (index2 > index) {
+							return stringSimilarity.compareTwoStrings(location, location2) > 0.9
+						}
+					})
+					return similarLocations.length === 0
+				})
+				
+				setAllUniqueLocations(uniqueLocations)
 			})
 	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
