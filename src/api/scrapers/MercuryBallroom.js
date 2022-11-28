@@ -1,4 +1,5 @@
 import axios from "axios";
+import { unEscapeWordPressHTML } from "../utilities.js";
 
 export async function scrapeMercuryBallroom() {
 	// Get eventData from Mercury Ballroom API
@@ -32,7 +33,7 @@ export async function scrapeMercuryBallroom() {
 				title,
 				address: 'Mercury Ballroom - 611 S 4th Street, Louisville, KY 40202',
 				time,
-				desc,
+				desc: unEscapeWordPressHTML(desc),
 				link: `https://do502.com${permalink}`,
 				epoch
 			});

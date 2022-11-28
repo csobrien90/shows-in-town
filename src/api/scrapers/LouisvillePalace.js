@@ -1,5 +1,5 @@
 import axios from "axios";
-import { unEscapeWordPressHTML } from "../utilities.js";
+import { unEscapeWordPressHTML, limitStringLength } from "../utilities.js";
 
 export async function scrapeLouisvillePalace() {
 	// Get eventData from do502 API
@@ -15,7 +15,7 @@ export async function scrapeLouisvillePalace() {
 			const { title, description, permalink, tz_adjusted_begin_date, category } = event
 
 			// Skip events that are not music
-			let desc = description ? unEscapeWordPressHTML(description) : ''
+			let desc = description ? limitStringLength(unEscapeWordPressHTML(description), 750) : ''
 			if (category !== 'Music' && !desc.toLowerCase().includes('music')) continue
 
 			// Define epoch and time

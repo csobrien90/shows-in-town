@@ -3,6 +3,7 @@ const unEscapeWordPressHTML = (text) => {
 		.replace(/(<([^>]+)>)/gi, ' ')
 		.replaceAll(`\n`, ' ')
 		.replaceAll("&amp;", '&')
+		.replaceAll("&#038;", `&`)
 		.replaceAll("&lt;", '<')
 		.replaceAll("&gt;", '>')
 		.replaceAll("&quot;", '"')
@@ -16,4 +17,13 @@ const unEscapeWordPressHTML = (text) => {
 		.trim()
 }
 
-export { unEscapeWordPressHTML }
+const limitStringLength = (text, limit) => {
+	if (text.length > limit) {
+		let abbreviatedText = text.substr(0, limit)
+		return abbreviatedText.substring(0, abbreviatedText.lastIndexOf(' ')) + ' [...] '
+	} else {
+		return text
+	}
+}
+
+export { unEscapeWordPressHTML, limitStringLength }
