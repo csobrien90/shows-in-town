@@ -5,7 +5,7 @@ import stringSimilarity from 'string-similarity';
 
 const Timeline = ({ setIsLoading }) => {
 	const [data, setData] = useState(null)
-	const [allUniqueLocations, setAllUniqueLocations] = useState(null)
+	const [uniqueLocations, setUniqueLocations] = useState(null)
 
 	useEffect(() => {
 		fetch('http://localhost:500')
@@ -24,12 +24,14 @@ const Timeline = ({ setIsLoading }) => {
 					const similarLocations = allLocations.filter((location2, index2) => {
 						if (index2 > index) {
 							return stringSimilarity.compareTwoStrings(location, location2) > 0.9
+						} else {
+							return false
 						}
 					})
 					return similarLocations.length === 0
 				})
 				
-				setAllUniqueLocations(uniqueLocations)
+				setUniqueLocations(uniqueLocations)
 			})
 	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
