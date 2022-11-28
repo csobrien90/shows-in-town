@@ -42,6 +42,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Iroquis Amphitheater
 - Old Forester's Paristown Hall
 - Louisville Palace
+- KFC YUM! Center
 
 ### In Progress
 
@@ -55,8 +56,13 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 	- Kaiju
 	- Gravely
 	- Kentucky Center
-	- KFC YUM! Center
 	- Living Room Series
+- Venues listed on Ticketmaster (venueId)
+	- Freedom Hall (KovZpZA6tdEA)
+	- Churchill Downs (KovZpZAEeIFA)
+	- Broadbent Arena (KovZpa3O3e)
+	- Southeast Christian Church (KovZ917AtA8)
+	- Expo Center (KovZpa3OYe)
 
 ## Current developers
 
