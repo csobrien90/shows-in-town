@@ -3,8 +3,7 @@ import DayHeader from './DayHeader';
 import Event from './Event';
 import stringSimilarity from 'string-similarity';
 
-const Timeline = ({ setIsLoading }) => {
-	const [data, setData] = useState(null)
+const Timeline = ({ setIsLoading, setEvents, events }) => {
 	const [uniqueLocations, setUniqueLocations] = useState(null)
 
 	useEffect(() => {
@@ -13,7 +12,7 @@ const Timeline = ({ setIsLoading }) => {
 			.then(res => {
 				// Set fetched data and falsify loading status
 				res.sort((a, b) => {return a.epoch-b.epoch});
-				setData(res)
+				setEvents(res)
 				setIsLoading(false)
 
 				// Get all unique locations
@@ -52,12 +51,12 @@ const Timeline = ({ setIsLoading }) => {
 
 	return (
 		<>
-			{data && data.map((event, index) => {
+			{events && events.map((event, index) => {
 				// Skip event if it is in the past
 				if (isPastEvent(event.epoch)) return false
 
 				// If event is first of its date, render date header
-				if (index === 0 || isNewDay(event.epoch, data[index-1].epoch)) {
+				if (index === 0 || isNewDay(event.epoch, events[index-1].epoch)) {
 					return (
 						<React.Fragment key={index}>
 							<DayHeader epoch={event.epoch} />
@@ -70,7 +69,7 @@ const Timeline = ({ setIsLoading }) => {
 					)
 				}
 			})}
-			{data && <p className='noMoreEvents'>-no more events to show - check back later-</p>}
+			{events && <p className='noMoreEvents'>-no more events to show - check back later-</p>}
 		</>
 	)
 }
