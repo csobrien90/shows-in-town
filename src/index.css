@@ -196,6 +196,38 @@ Timeline
 	letter-spacing: .05em;
 }
 
+.options-wrapper {
+	display: flex;
+	gap: 1em;
+	justify-items: center;
+	align-items: center;
+}
+
+.filter-button {
+	width: 2.3em;
+	height: 2.3em;
+	background-color: transparent;
+	border: none;
+	padding: .3em;
+	border-radius: 5px;
+}
+
+.filter-button:hover {
+	cursor: pointer;
+	filter: invert(1);
+	background-color: white;
+}
+
+.filter-button svg {
+	width: 1.7em;
+	height: 1.7em;
+}
+
+.filter-button:hover svg{
+	stroke: black;
+	stroke-width: 20px;
+}
+
 input[type="date"] {
 	position: relative;
 	width: 2em;

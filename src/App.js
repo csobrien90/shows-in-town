@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Datepicker from './components/Datepicker';
 import Timeline from './components/Timeline';
+import Filter from './components/Filter';
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState(true)
@@ -14,7 +15,10 @@ const App = () => {
 				{!isLoading && (
 					<div className='subheading'>
 						<p className='subtitle'>live music in Louisville</p>
-						<Datepicker />
+						<div className='options-wrapper'>
+							<Filter />
+							<Datepicker />
+						</div>
 					</div>
 				)}
 			</header>
