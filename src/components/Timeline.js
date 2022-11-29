@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import DayHeader from './DayHeader';
 import Event from './Event';
 import stringSimilarity from 'string-similarity';
 
-const Timeline = ({ setIsLoading, setEvents, events }) => {
-	const [uniqueLocations, setUniqueLocations] = useState(null)
+const Timeline = ({ setIsLoading, setEvents, events, setUniqueLocations}) => {
 
 	useEffect(() => {
 		fetch('http://localhost:500')
