@@ -1,11 +1,23 @@
 import React, {useState} from 'react';
 
-const FilterOptions = ({ uniqueLocations, filterTimeline }) => {
+const FilterOptions = ({ uniqueLocations, filterTimeline, isVisible }) => {
 	const [filterCategory, setFilterCategory] = useState(false)
 	const [params, setParams] = useState({locations: []})
 
 	const chooseCategory = (e) => {
-		setFilterCategory(e.target.value)
+		if (e.target.checked) {
+			setFilterCategory(e.target.value)
+		} else {
+			setFilterCategory(false)
+			clearCategory(e.target.value)
+		}
+	}
+
+	const clearCategory = (category) => {
+		const newParams = {...params, [category]: []}
+		setParams(newParams)
+		filterTimeline(newParams)
+		document.querySelectorAll(`#${category}-fields input`).forEach(input => input.checked = false)
 	}
 
 	const handleClick = (category, e) => {
@@ -24,18 +36,24 @@ const FilterOptions = ({ uniqueLocations, filterTimeline }) => {
 	}
 
 	return (
-		<form>
-			<fieldset>
+		<form style={{display: isVisible ? 'grid' : 'none'}} id='filters'>
+			<fieldset id='filter-by'>
 				<legend>Filter By</legend>
-				<label htmlFor='location'>Venue</label>
-				<input type='radio' id='location' name='filter-category' value='location' onClick={chooseCategory} />
+				<label htmlFor='locations'>
+					Venue
+					<input type='checkbox' id='locations' name='filter-category' value='locations' onClick={chooseCategory} />
+				</label>
 			</fieldset>
-			{filterCategory === 'location' && (
-				<fieldset id='location-fields'>
+			{filterCategory === 'locations' && (
+				<fieldset id='locations-fields'>
 					<legend>Location</legend>
+					<label htmlFor='clear-all-locations'>
+						<input type='checkbox' id='clear-all-locations' value='clear-all-locations' onClick={(e) => clearCategory('locations')}/>
+						Clear all location filters (see all locations)
+					</label>
 					{uniqueLocations.map((location, index) => (
-						<label key={index}>
-							<input type='checkbox' name='location' value={location} onClick={(e) => handleClick('locations', e)}/>
+						<label key={index} htmlFor={'location'+index}>
+							<input type='checkbox' id={'location'+index} value={location} onClick={(e) => handleClick('locations', e)}/>
 							{location}
 						</label>
 					))}

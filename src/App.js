@@ -44,9 +44,9 @@ const App = () => {
 					</div>
 				)}
 			</header>
-			{expandedSection && <section>
-				{expandedSection === 'filter-options' && <FilterOptions uniqueLocations={uniqueLocations} filterTimeline={filterTimeline} />}
-			</section>}
+			<section id='expanded-section'>
+				<FilterOptions uniqueLocations={uniqueLocations} filterTimeline={filterTimeline} isVisible={expandedSection === 'filter-options'}/>
+			</section>
 			<Timeline setIsLoading={setIsLoading} setEvents={setEvents} events={filteredEvents || events} setUniqueLocations={setUniqueLocations} />
 			{!isLoading && <a href="#top" id='topLink'>Top ↑</a>}
 		</main>

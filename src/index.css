@@ -87,6 +87,12 @@ p, label {
 	font-size: 1.6em;
 }
 
+label {
+	display: flex;
+	gap: .5em;
+	align-items: center;
+}
+
 ul {
 	list-style-type: none;
 }
@@ -175,6 +181,22 @@ header:first-of-type {
 @keyframes blink-caret {
 	from, to { border-color: transparent }
 	50% { border-color: black; }
+}
+
+
+/*
+__________________
+Expanded Section
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+*/
+
+#expanded-section {
+	margin-top: 1em;
+}
+
+#filters {
+	display: grid;
+	gap: 1em;
 }
 
 
