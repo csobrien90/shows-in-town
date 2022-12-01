@@ -34,7 +34,8 @@ export async function scrapeLouisvillePalace() {
 			// Tidy up data and push to events array
 			events.push({
 				title,
-				address: 'Louisville Palace - 625 S 4th St, Louisville, KY 40202',
+				venue: 'Louisville Palace',
+				address: '625 S 4th St, Louisville, KY 40202',
 				time,
 				desc,
 				link: `https://do502.com${permalink}`,

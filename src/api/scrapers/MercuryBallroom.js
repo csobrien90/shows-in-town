@@ -31,7 +31,8 @@ export async function scrapeMercuryBallroom() {
 			// Tidy up data and push to events array
 			events.push({
 				title,
-				address: 'Mercury Ballroom - 611 S 4th Street, Louisville, KY 40202',
+				venue: 'Mercury Ballroom',
+				address: '611 S 4th Street, Louisville, KY 40202',
 				time,
 				desc: unEscapeWordPressHTML(desc),
 				link: `https://do502.com${permalink}`,

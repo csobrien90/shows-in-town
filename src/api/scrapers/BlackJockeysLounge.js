@@ -91,7 +91,8 @@ export async function scrapeBlackJockeysLounge() {
 			// Tidy up data and push to events array
 			events.push({
 				title: title.replace(/\s+/g, ' ').trim(),
-				address: 'Black Jockey\'s Lounge - 630 S. 4th Street, Louisville, KY 40202',
+				venue: 'Black Jockey\'s Lounge',
+				address: '630 S. 4th Street, Louisville, KY 40202',
 				time: dateTime,
 				epoch,
 				desc,

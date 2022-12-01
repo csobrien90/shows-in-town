@@ -44,7 +44,8 @@ export async function scrapeMagBar() {
 			// Tidy up data and push to events array
 			events.push({
 				title,
-				address: 'MAG BAR - 1398 S 2nd St Louisville, KY 40208',
+				venue: 'Mag Bar',
+				address: '1398 S 2nd St Louisville, KY 40208',
 				time,
 				epoch,
 				desc,

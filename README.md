@@ -10,7 +10,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 
 1. add a new file `{Resource}.js` in */src/api/scrapers* 
 	- export an async function called `scrape{Resource}`
-	- it should return an array of event objects with these keys: `{ title, address, time,	epoch, desc, link }`
+	- it should return an array of event objects with these keys: `{ title, venue, address, time, epoch, desc, link }`
 2. pull the resource into *src/api/getEvents.js* by adding:
 	- an import statement
 	- a variable definition in the destructing array

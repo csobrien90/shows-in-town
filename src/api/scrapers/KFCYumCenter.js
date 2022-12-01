@@ -15,7 +15,7 @@ export async function scrapeKFCYumCenter() {
 
 			// Build address
 			const venue = _embedded.venues[0]
-			const location = `${venue.name} - ${venue.address.line1}, ${venue.city.name}, ${venue.state.name} ${venue.postalCode}`
+			const address = `${venue.address.line1}, ${venue.city.name}, ${venue.state.name} ${venue.postalCode}`
 
 			// Define epoch and time
 			const epoch = Date.parse(new Date(dates.start.dateTime))
@@ -39,7 +39,8 @@ export async function scrapeKFCYumCenter() {
 			// Push to events array
 			events.push({
 				title: name,
-				address: location,
+				venue: venue.name,
+				address,
 				time,
 				desc,
 				link: url,

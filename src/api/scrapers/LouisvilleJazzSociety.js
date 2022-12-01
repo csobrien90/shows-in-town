@@ -8,15 +8,16 @@ export async function scrapeLouisvilleJazzSociety() {
 	// Get page content
 	await page.goto('https://louisvillejazz.org/?post_type=tribe_events&posts_per_page=150')
 	let eventsElements = await page.$$('.tribe-events-calendar-list__event-row')
-	
+
 	// Iterate over elements and populate events array
 	let events = [];
 	for (let e of eventsElements) {
 		try {
 			// Extract data
-			let [title, address, time, link] = await Promise.all([
+			let [title, venue, address, time, link] = await Promise.all([
 				e.$eval('h3', el => el.innerText),
-				e.$eval('address', el => el.innerText),
+				e.$eval('address .tribe-events-calendar-list__event-venue-title', el => el.innerText),
+				e.$eval('address .tribe-events-calendar-list__event-venue-address', el => el.innerText),
 				e.$eval('.tribe-events-calendar-list__event-datetime', el => el.innerText),
 				e.$eval('h3 a', el => el.href)
 			]);
@@ -63,6 +64,7 @@ export async function scrapeLouisvilleJazzSociety() {
 			// Tidy up data and push to events array
 			events.push({
 				title: title.trim(),
+				venue: venue.trim(),
 				address: address.replace(/\s+/g, ' '),
 				time: time.trim(),
 				epoch,

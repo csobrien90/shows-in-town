@@ -46,7 +46,8 @@ export async function scrapeStevieRays() {
 			// Tidy up data and push to events array
 			events.push({
 				title: shortenedTitle,
-				address: `${e.location.addressTitle} - ${e.location.addressLine1} ${e.location.addressLine2}`,
+				venue: e.location.addressTitle,
+				address: `${e.location.addressLine1} ${e.location.addressLine2}`,
 				time: `${new Date(e.startDate).toLocaleTimeString()} - ${new Date(e.endDate).toLocaleTimeString()}`,
 				desc: title,
 				link: 'https://www.stevieraysbluesbar.com' + e.fullUrl,

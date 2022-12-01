@@ -18,11 +18,12 @@ export async function scrapeLouisvilleOrchestra() {
 			const startTime = new Date(start_date).toLocaleDateString('en-US', dateStringOptions)
 
 			// Prepare venue
-			const address = `${venue.venue} - ${venue.address}, ${venue.city}, ${venue.state ? venue.state : 'KY'} ${venue.zip}`
+			const address = `${venue.address}, ${venue.city}, ${venue.state ? venue.state : 'KY'} ${venue.zip}`
 	
 			// Tidy up data and push to events array
 			events.push({
 				title: unEscapeWordPressHTML(title),
+				venue: unEscapeWordPressHTML(venue.venue),
 				address: unEscapeWordPressHTML(address),
 				time: startTime,
 				desc: unEscapeWordPressHTML(description),

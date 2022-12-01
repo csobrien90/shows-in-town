@@ -91,7 +91,8 @@ export async function scrapeHeadliners() {
 			// Tidy up data and push to events array
 			events.push({
 				title: title.trim(),
-				address: 'Headliners Music Hall - 1386 Lexington Rd. Louisville, KY',
+				venue: 'Headliners Music Hall',
+				address: '1386 Lexington Rd. Louisville, KY',
 				time: dateTime,
 				epoch,
 				desc,

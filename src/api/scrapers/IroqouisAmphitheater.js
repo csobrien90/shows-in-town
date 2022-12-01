@@ -30,7 +30,8 @@ export async function scrapeIroqouisAmphitheater() {
 			// Tidy up data and push to events array
 			events.push({
 				title,
-				address: 'Iroqouis Amphitheater - 1080 Amphitheater Rd, Louisville, KY 40214',
+				venue: 'Iroqouis Amphitheater',
+				address: '1080 Amphitheater Rd, Louisville, KY 40214',
 				time,
 				desc,
 				link: `https://do502.com${permalink}`,

@@ -20,7 +20,8 @@ export async function scrapeZanzabar() {
 			// Tidy up data and push to events array
 			events.push({
 				title: unEscapeWordPressHTML(title),
-				address: 'Zanzabar - 2100 S Preston St, Louisville, KY 40217',
+				venue: 'Zanzabar',
+				address: '2100 S Preston St, Louisville, KY 40217',
 				time: `${startTime} - ${endTime}`,
 				desc: unEscapeWordPressHTML(description) + ` --- Ticket cost: ${cost}`,
 				link: url,

@@ -31,7 +31,8 @@ export async function scrapeParistownHall() {
 			// Tidy up data and push to events array
 			events.push({
 				title,
-				address: 'Old Forester\'s Paristown Hall - 724 Brent Street, Louisville, KY 40204',
+				venue: 'Old Forester\'s Paristown Hall',
+				address: '724 Brent Street, Louisville, KY 40204',
 				time,
 				desc: unEscapeWordPressHTML(desc),
 				link: `https://do502.com${permalink}`,
