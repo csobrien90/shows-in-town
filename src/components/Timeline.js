@@ -15,7 +15,7 @@ const Timeline = ({ setIsLoading, setEvents, events, setUniqueLocations}) => {
 				setIsLoading(false)
 
 				// Get all unique locations
-				const allLocations = [...new Set(res.map(event => event.address))];
+				const allLocations = [...new Set(res.map(event => event.venue))];
 				
 				// only include one location of groups with 90% similar name
 				const uniqueLocations = allLocations.filter((location, index) => {
@@ -27,6 +27,13 @@ const Timeline = ({ setIsLoading, setEvents, events, setUniqueLocations}) => {
 						}
 					})
 					return similarLocations.length === 0
+				})
+
+				// Sort unique locations alphabetically ingoring case and leading articles
+				uniqueLocations.sort((a, b) => {
+					const aNoArticle = a.replace(/^(a |the |an )/i, '')
+					const bNoArticle = b.replace(/^(a |the |an )/i, '')
+					return aNoArticle.localeCompare(bNoArticle)
 				})
 				
 				setUniqueLocations(uniqueLocations)

@@ -18,9 +18,9 @@ const App = () => {
 		// Filter events by location
 		if (params.locations.length > 0) {
 			eventsArr = eventsArr.filter(event => {
-				return params.locations.includes(event.address) ||
+				return params.locations.includes(event.venue) ||
 					params.locations.some(location => {
-						return stringSimilarity.compareTwoStrings(location, event.address) > 0.9
+						return stringSimilarity.compareTwoStrings(location, event.venue) > 0.9
 					})
 			})
 		}

@@ -302,6 +302,7 @@ header:nth-of-type(2) {
 	margin: 2em;
 }
 
+
 /*
 __________________
 Events
@@ -332,13 +333,13 @@ article a:hover h3::after {
 	padding-left: .3em;
 }
 
+.event-address span {
+	font-weight: 600;
+}
+
 .event-description {
 	margin-top: .5em;
 }
-
-
-
-
 
 
 /*
