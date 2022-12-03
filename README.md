@@ -4,6 +4,13 @@
 There is not one central repository for concerts in Louisville - music lovers in town need a single source of truth for all the possible shows on a given day/night. Most musicians and venues post only their own gigs. There are some organizations that try to compile events but all (at least, to my knowledge) require people to submit their own content and, so, are nowhere near compiling all gigs in town. **Shows In Town** attempts to solve this problem by creating an open source platform for compiling and displaying basic event information that our community of local musician/developers can contribute their own scrapers to over time.
 
 
+## How to install and run locally
+
+- After cloning this repository locally, navigate inside the folder run `npm install`
+- In one terminal window, start the backend with `node src/api/api.js` (access directly at localhost:500)
+- In a different window, start the frontend with `npm start` (access at localhost:3000)
+
+
 ## How to contribute
 
 Please feel free to create a new issue or pick up an open one. The most welcome contribution will always be new scrapers. If you've found an online resource listing live music in Louisville, follow the steps below to add those events to this list:
