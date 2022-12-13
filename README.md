@@ -81,3 +81,4 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 *This could be you!*
 
 - Meghan Pund
+- Jeff Beers
