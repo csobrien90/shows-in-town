@@ -1,15 +1,16 @@
-import { scrapeHeadliners } from "./scrapers/Headliners.js";
-import { scrapeLouisvilleJazzSociety } from "./scrapers/LouisvilleJazzSociety.js";
-import { scrapeBlackJockeysLounge } from "./scrapers/BlackJockeysLounge.js";
-import { scrapeStevieRays } from "./scrapers/StevieRays.js";
-import { scrapeZanzabar } from "./scrapers/Zanzabar.js";
-import { scrapeMagBar } from "./scrapers/MagBar.js";
-import { scrapeMercuryBallroom } from "./scrapers/MercuryBallroom.js";
-import { scrapeLouisvilleOrchestra } from "./scrapers/LouisvilleOrchestra.js";
-import { scrapeIroqouisAmphitheater } from "./scrapers/IroqouisAmphitheater.js";
-import { scrapeParistownHall } from "./scrapers/ParistownHall.js";
-import { scrapeLouisvillePalace } from "./scrapers/LouisvillePalace.js";
-import { scrapeKFCYumCenter } from "./scrapers/KFCYumCenter.js";
+import { scrapeHeadliners } from "./scrapers/Headliners.js"
+import { scrapeLouisvilleJazzSociety } from "./scrapers/LouisvilleJazzSociety.js"
+import { scrapeBlackJockeysLounge } from "./scrapers/BlackJockeysLounge.js"
+import { scrapeStevieRays } from "./scrapers/StevieRays.js"
+import { scrapeZanzabar } from "./scrapers/Zanzabar.js"
+import { scrapeMagBar } from "./scrapers/MagBar.js"
+import { scrapeMercuryBallroom } from "./scrapers/MercuryBallroom.js"
+import { scrapeLouisvilleOrchestra } from "./scrapers/LouisvilleOrchestra.js"
+import { scrapeIroqouisAmphitheater } from "./scrapers/IroqouisAmphitheater.js"
+import { scrapeParistownHall } from "./scrapers/ParistownHall.js"
+import { scrapeLouisvillePalace } from "./scrapers/LouisvillePalace.js"
+import { scrapeKFCYumCenter } from "./scrapers/KFCYumCenter.js"
+import { scrapeFifteenTwelve } from "./scrapers/FifteenTwelve.js"
 
 export async function getEvents() {
 	const [headliners,
@@ -23,7 +24,8 @@ export async function getEvents() {
 		iroqouisAmphitheater,
 		paristownHall,
 		louisvillePalace,
-		kfcYumCenter
+		kfcYumCenter,
+		fifteenTwelve
 	] = await Promise.all([
 		scrapeHeadliners(),
 		scrapeLouisvilleJazzSociety(),
@@ -36,7 +38,8 @@ export async function getEvents() {
 		scrapeIroqouisAmphitheater(),
 		scrapeParistownHall(),
 		scrapeLouisvillePalace(),
-		scrapeKFCYumCenter()
+		scrapeKFCYumCenter(),
+		scrapeFifteenTwelve()
 	])
 
 	return [
@@ -51,6 +54,7 @@ export async function getEvents() {
 		...iroqouisAmphitheater,
 		...paristownHall,
 		...louisvillePalace,
-		...kfcYumCenter
-	];
+		...kfcYumCenter,
+		...fifteenTwelve
+	]
 }

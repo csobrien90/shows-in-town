@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer';
 
 export async function scrapeLouisvilleJazzSociety() {
 	// Start and configure puppeteer
-	const browser = await puppeteer.launch({})
+	const browser = await puppeteer.launch({ headless: true })
 	const page = await browser.newPage()
 	
 	// Get page content

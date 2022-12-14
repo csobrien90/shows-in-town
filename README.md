@@ -50,6 +50,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - Old Forester's Paristown Hall
 - Louisville Palace
 - KFC YUM! Center
+- fifteenTWELVE
 
 ### In Progress
 
