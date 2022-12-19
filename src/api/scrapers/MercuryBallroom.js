@@ -1,14 +1,13 @@
-import axios from "axios";
 import { unEscapeWordPressHTML } from "../utilities.js";
 
 export async function scrapeMercuryBallroom() {
 	// Get eventData from Mercury Ballroom API
 	const mercuryBallroomUrl = 'https://do502.com/venues/mercury-ballroom?format=json'
-	const eventData = await axios.get(mercuryBallroomUrl)
+	const eventData = await fetch(mercuryBallroomUrl).then(res => res.json())
 
 	// Iterate over elements and populate events array
 	let events = [];
-	for (let e of eventData.data.event_groups) {
+	for (let e of eventData.event_groups) {
 		try {
 			// Destructure event data
 			const event = e.events[0]

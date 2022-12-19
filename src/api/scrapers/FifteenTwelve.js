@@ -1,4 +1,3 @@
-import axios from "axios";
 import puppeteer from "puppeteer";
 
 export async function scrapeFifteenTwelve() {
@@ -18,15 +17,15 @@ export async function scrapeFifteenTwelve() {
 	
 	// Get events for those months and compile into rawEvents
 	const [thisMonth, nextMonth, twoMonthsFromNow] = await Promise.all([
-		axios.get(`${baseUrl}${route}?collectionId=${collectionId}&month=${thisMonthParam}`),
-		axios.get(`${baseUrl}${route}?collectionId=${collectionId}&month=${nextMonthParam}`),
-		axios.get(`${baseUrl}${route}?collectionId=${collectionId}&month=${twoMonthsFromNowParam}`),
+		fetch(`${baseUrl}${route}?collectionId=${collectionId}&month=${thisMonthParam}`).then(res => res.json()),
+		fetch(`${baseUrl}${route}?collectionId=${collectionId}&month=${nextMonthParam}`).then(res => res.json()),
+		fetch(`${baseUrl}${route}?collectionId=${collectionId}&month=${twoMonthsFromNowParam}`).then(res => res.json()),
 	])
 
 	const rawEvents = [
-		...thisMonth.data,
-		...nextMonth.data,
-		...twoMonthsFromNow.data
+		...thisMonth,
+		...nextMonth,
+		...twoMonthsFromNow
 	]
 	
 	// Iterate over elements and populate events array

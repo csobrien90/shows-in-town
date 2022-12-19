@@ -1,14 +1,13 @@
-import axios from "axios";
 import { unEscapeWordPressHTML, limitStringLength } from "../utilities.js";
 
 export async function scrapeLouisvillePalace() {
 	// Get eventData from do502 API
 	const louisvillePalaceUrl = 'https://do502.com/venues/the-louisville-palace?format=json'
-	const eventData = await axios.get(louisvillePalaceUrl)
+	const eventData = await fetch(louisvillePalaceUrl).then(res => res.json())
 
 	// Iterate over elements and populate events array
 	let events = [];
-	for (let e of eventData.data.event_groups) {
+	for (let e of eventData.event_groups) {
 		try {
 			// Destructure event data
 			const event = e.events[0]

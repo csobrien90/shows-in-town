@@ -60,6 +60,8 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 *List potential resources here*
 
 - [Gerstle's](https://www.gerstles.com/louisville/wp-json)
+- [Raven Irish Pub](https://theravenirishpub.com/wp-json/wp/v2/ajde_events)
+- [21st in Germantown](https://www.21stgermantown.com/events) - an embedded google calendar that can be scraped
 - Venues listed on do502.com
 	- Kaiju
 	- Gravely

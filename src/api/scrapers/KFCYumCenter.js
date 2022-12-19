@@ -1,14 +1,12 @@
-import axios from "axios";
-
 export async function scrapeKFCYumCenter() {
 	// Get eventData from Ticketmaster API
 	const apiKey = '7elxdku9GGG5k8j0Xm8KWdANDgecHMV0' // a public key provided with Ticketmaster's Discovery API
 	const ticketmasterApiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&classificationName=Music&city=Louisville&venueId=KovZpaFnje`
-	const eventData = await axios.get(ticketmasterApiUrl)
+	const eventData = await fetch(ticketmasterApiUrl).then(res => res.json())
 
 	// Iterate over elements and populate events array
 	let events = [];
-	for (let e of eventData.data._embedded.events) {
+	for (let e of eventData._embedded.events) {
 		try {
 			// Destructure event data
 			const { name, dates, url, priceRanges, doorsTimes, _embedded } = e

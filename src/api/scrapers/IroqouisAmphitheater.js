@@ -1,13 +1,11 @@
-import axios from "axios";
-
 export async function scrapeIroqouisAmphitheater() {
 	// Get eventData from do502 API
 	const iroqouisAmphitheaterUrl = 'https://do502.com/venues/iroquois-amphitheater?format=json'
-	const eventData = await axios.get(iroqouisAmphitheaterUrl)
+	const eventData = await fetch(iroqouisAmphitheaterUrl).then(res => res.json())
 
 	// Iterate over elements and populate events array
 	let events = [];
-	for (let e of eventData.data.event_groups) {
+	for (let e of eventData.event_groups) {
 		try {
 			// Destructure event data
 			const event = e.events[0]

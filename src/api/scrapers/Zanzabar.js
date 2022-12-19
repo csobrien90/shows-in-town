@@ -1,10 +1,9 @@
-import axios from "axios"
 import {unEscapeWordPressHTML} from '../utilities.js'
 
 export async function scrapeZanzabar() {
 	// Get events from exposed WordPress REST API endpoint
-	const response = await axios.get('https://www.zanzabarlouisville.com/wp-json/tribe/events/v1/events')
-	const rawEvents = response.data
+	const response = await fetch('https://www.zanzabarlouisville.com/wp-json/tribe/events/v1/events').then(res => res.json())
+	const rawEvents = response
 
 	// Iterate over elements and populate events array
 	let events = [];
