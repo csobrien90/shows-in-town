@@ -64,7 +64,7 @@ Please feel free to create a new issue or pick up an open one. The most welcome 
 - [21st in Germantown](https://www.21stgermantown.com/events) - an embedded google calendar that can be scraped
 - Venues listed on do502.com
 	- Kaiju
-	- Gravely
+	- Graveldocker psy
 	- Kentucky Center
 	- Living Room Series
 - Venues listed on Ticketmaster (venueId)
