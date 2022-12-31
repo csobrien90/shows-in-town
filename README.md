@@ -6,73 +6,21 @@ There is not one central repository for concerts in Louisville - music lovers in
 
 ## How to install and run locally
 
-- After cloning this repository locally, navigate inside the folder run `npm install`
-- In one terminal window, start the backend with `node src/api/api.js` (access directly at localhost:500)
-- In a different window, start the frontend with `npm start` (access at localhost:3000)
+- clone this repo
+- `cd` into the project directory
+- run `npm install`
+- run `npm start`
+- open your browser to `localhost:3000`
 
 
 ## How to contribute
 
-Please feel free to create a new issue or pick up an open one. The most welcome contribution will always be new scrapers. If you've found an online resource listing live music in Louisville, follow the steps below to add those events to this list:
-
-1. add a new file `{Resource}.js` in */src/api/scrapers* 
-	- export an async function called `scrape{Resource}`
-	- it should return an array of event objects with these keys: `{ title, venue, address, time, epoch, desc, link }`
-2. pull the resource into *src/api/getEvents.js* by adding:
-	- an import statement
-	- a variable definition in the destructing array
-	- a call to your scraper function in the `Promise.all` array
-	- your resultant array, spread into the return array
-3. update this README to include
-	- the new resource in the *Scrapers > Done* section
-	- your name in *Current developers > Contributors* below
-4. (Extra bonus option) Create some unit tests for your scraper
-	- file should be named `{YourComponentName}.test.js`
-
-### Guidelines
-
-- One of the top priorities for this project must be to compile events equitably. As the number of scraped sites grows, maintainers and contributors will ensure that music from venues all around the city by all sorts of performers are presented without bias, conscious or unconscious.
-
-## Scrapers
-*The approach to scaling this app will be to gradually pull event data from (scrape) new Resources: venues, musicians' sites, organization calendars, etc.*
-
-### Done
-
-- Louisville Jazz Society
-- Headliners
-- Black Jockey's Lounge
-- Stevie Rays Blues Bar
-- Zanzabar
-- Mag Bar
-- Mercury Ballroom
-- Louisville Orchestra
-- Iroquis Amphitheater
-- Old Forester's Paristown Hall
-- Louisville Palace
-- KFC YUM! Center
-- fifteenTWELVE
-
-### In Progress
-
-*none currently pending*
+Please feel free to create a new issue or pick up an open one.
 
 ### To do
-*List potential resources here*
 
-- [Gerstle's](https://www.gerstles.com/louisville/wp-json)
-- [Raven Irish Pub](https://theravenirishpub.com/wp-json/wp/v2/ajde_events)
-- [21st in Germantown](https://www.21stgermantown.com/events) - an embedded google calendar that can be scraped
-- Venues listed on do502.com
-	- Kaiju
-	- Graveldocker psy
-	- Kentucky Center
-	- Living Room Series
-- Venues listed on Ticketmaster (venueId)
-	- Freedom Hall (KovZpZA6tdEA)
-	- Churchill Downs (KovZpZAEeIFA)
-	- Broadbent Arena (KovZpa3O3e)
-	- Southeast Christian Church (KovZ917AtA8)
-	- Expo Center (KovZpa3OYe)
+- Write unit and integration tests for all components
+
 
 ## Current developers
 

@@ -6,7 +6,7 @@ import stringSimilarity from 'string-similarity';
 const Timeline = ({ setIsLoading, setEvents, events, setUniqueLocations}) => {
 
 	useEffect(() => {
-		fetch('http://localhost:8080')
+		fetch('https://shows-in-town.xyz')
 			.then(res => res.json())
 			.then(res => {
 				// Set fetched data and falsify loading status
