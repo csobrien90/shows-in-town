@@ -5,6 +5,7 @@ There is not one central repository for concerts in Louisville - music lovers in
 
 This site is now hosted on [chado.dev/shows-in-town](chado.dev/shows-in-town)
 
+The Github repository for the scraper that powers this site can be found [here](github.com/csobrien90/shows-in-town-backend).
 
 ## How to contribute
 
