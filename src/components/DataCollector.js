@@ -44,32 +44,35 @@ const DataCollector = ({children}) => {
 	}, [])
 
 
-	// When the user leaves the page, send data to the db
-	window.addEventListener('beforeunload', async (e) => {
+	const makeUserDataObject = () => {
 		// Calculate time on page
 		const timeOnPage = Date.now() - timeOfPageLoad
 
-		// Prep user data object to send to db
-		const userData = {
+		// Return user data object
+		return {
 			userAgent,
 			timeOnPage,
 			ipData,
 			events
 		}
+	}
+	useEffect(() => {
+		// When the user leaves the page, send data to the db
+		window.addEventListener('beforeunload', async (e) => {
 
-		// Send data to db
-		const response = await fetch('https://z32mbfotsov62vonmya6xsnyz40lydhm.lambda-url.us-east-2.on.aws/', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(userData)
-		}).catch(err => console.log(err))
+			// Make user data object
+			const userData = makeUserDataObject()
 
-		// Log response from db
-		const json = await response.json()
-		console.log(json)
-	})
+			// Send data to db
+			fetch('https://z32mbfotsov62vonmya6xsnyz40lydhm.lambda-url.us-east-2.on.aws/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(userData)
+			})
+		})
+	}, [])
 
 	return (
 		<>
