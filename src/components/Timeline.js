@@ -38,6 +38,10 @@ const Timeline = ({ setIsLoading, setEvents, events, setUniqueLocations}) => {
 				
 				setUniqueLocations(uniqueLocations)
 			})
+			.catch(err => {
+				console.log(err)
+				setIsLoading(false)
+			})
 	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 	const isNewDay = (epoch, prevEpoch) => {

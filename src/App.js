@@ -4,6 +4,7 @@ import Timeline from './components/Timeline';
 import Filter from './components/Filter';
 import FilterOptions from './components/FilterOptions';
 import stringSimilarity from 'string-similarity';
+import DataCollector from './components/DataCollector';
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState(true)
@@ -29,27 +30,29 @@ const App = () => {
 	}
 
 	return (
-		<main className={isLoading ? 'loading' : ''}>
-			<header>
-				<h1>Shows In Town</h1>
-				<hr />
-				{isLoading && <p className='subtitle'>Finding live music in Louisville...</p>}
-				{!isLoading && (
-					<div className='subheading'>
-						<p className='subtitle'>live music in Louisville</p>
-						<div className='options-wrapper'>
-							<Filter expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
-							<Datepicker />
+		<DataCollector>
+			<main className={isLoading ? 'loading' : ''}>
+				<header>
+					<h1>Shows In Town</h1>
+					<hr />
+					{isLoading && <p className='subtitle'>Finding live music in Louisville...</p>}
+					{!isLoading && (
+						<div className='subheading'>
+							<p className='subtitle'>live music in Louisville</p>
+							<div className='options-wrapper'>
+								<Filter expandedSection={expandedSection} setExpandedSection={setExpandedSection} />
+								<Datepicker />
+							</div>
 						</div>
-					</div>
-				)}
-			</header>
-			<section id='expanded-section'>
-				<FilterOptions uniqueLocations={uniqueLocations} filterTimeline={filterTimeline} isVisible={expandedSection === 'filter-options'}/>
-			</section>
-			<Timeline setIsLoading={setIsLoading} setEvents={setEvents} events={filteredEvents || events} setUniqueLocations={setUniqueLocations} />
-			{!isLoading && <a href="#top" id='topLink'>Top ↑</a>}
-		</main>
+					)}
+				</header>
+				<section id='expanded-section'>
+					<FilterOptions uniqueLocations={uniqueLocations} filterTimeline={filterTimeline} isVisible={expandedSection === 'filter-options'}/>
+				</section>
+				<Timeline setIsLoading={setIsLoading} setEvents={setEvents} events={filteredEvents || events} setUniqueLocations={setUniqueLocations} />
+				{!isLoading && <a href="#top" id='topLink'>Top ↑</a>}
+			</main>
+		</DataCollector>
 	)
 }
 
