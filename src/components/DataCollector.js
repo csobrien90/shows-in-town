@@ -43,7 +43,7 @@ const DataCollector = ({children}) => {
 		})
 	}, [])
 
-
+	// Make user data object
 	const makeUserDataObject = () => {
 		// Calculate time on page
 		const timeOnPage = Date.now() - timeOfPageLoad
@@ -56,10 +56,11 @@ const DataCollector = ({children}) => {
 			events
 		}
 	}
+
+	// Send data to db when user leaves page
 	useEffect(() => {
 		// When the user leaves the page, send data to the db
 		window.addEventListener('beforeunload', async (e) => {
-
 			// Make user data object
 			const userData = makeUserDataObject()
 
@@ -69,7 +70,8 @@ const DataCollector = ({children}) => {
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify(userData)
+				body: JSON.stringify(userData),
+				keepalive: true
 			})
 		})
 	}, [])
